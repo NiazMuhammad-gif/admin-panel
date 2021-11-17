@@ -10,5 +10,6 @@ export const environment = {
     messagingSenderId: '',
     appId: '',
     measurementId: ''
-  }
+  },
+  apiUrl: "https://voiashb.8mindsolutions.com/"
 };
