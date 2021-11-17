@@ -1,0 +1,76 @@
+
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="row" [ngStyle]="isLoading ? {opacity: 0.5}: {opacity: 1}">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" *ngIf="newMode">Add User Form</h4>
+                <h4 class="card-title" *ngIf="!newMode"> Reset Password Form</h4>
+      <p class="card-title-desc" *ngIf="newMode">Enter User data into the following form .</p>
+      <p class="card-title-desc" *ngIf="!newMode">Enter new Password into the following form .</p>
+                <form (ngSubmit)="onAddData(f)" #f="ngForm" >
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="username">User Name:</label>
+                            <input type="text" [class.is-invalid] = "nameRef.invalid && nameRef.touched"  class="form-control" id="username" name="username"  #nameRef="ngModel" [(ngModel)]="user.name"  [readonly]="!newMode" required>
+                            <div *ngIf="(nameRef.invalid && nameRef.touched) || nameRef.dirty">
+                                <small class="text-danger" *ngIf="nameRef.errors?.required">Name is required</small>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="email">Email:</label>
+                            <div>
+                                <input type="email" [class.is-invalid] = "emailRef.invalid && emailRef.touched"    #emailRef="ngModel"  name="email"  [(ngModel)]="user.email" class="form-control" id="email" [readonly]="!newMode"  required email>
+                                <div *ngIf="(emailRef.invalid && emailRef.touched) || emailRef.dirty">
+                                    <small class="text-danger" *ngIf="emailRef.errors?.required">Email address is required</small>
+			                            <small class="text-danger" *ngIf="emailRef.errors?.pattern">Email address is invalid</small>
+                                        <small class="text-danger" *ngIf="emailRef.errors?.email">Email address is invalid</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" *ngIf="newMode">
+                            <label for="phoneNo">Phone No:</label>
+                            <input type="tel" [class.is-invalid] = "phoneRef.invalid && phoneRef.touched"  class="form-control" id="phoneNo" name="phoneNo" #phoneRef="ngModel"  [(ngModel)]="user.phoneNo" [readonly]="!newMode" required pattern="^[0-9]*$">
+                            <div *ngIf="(phoneRef.invalid && phoneRef.touched) || phoneRef.dirty">
+                                <small class="text-danger" *ngIf="phoneRef.errors?.required">Phone No is required</small>
+                                <small class="text-danger" *ngIf="phoneRef.errors?.pattern">Phone No is invalid</small>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="password">Password:</label>
+                            <input type="password" [class.is-invalid] = "passRef.invalid && passRef.touched"   name="password"  #passRef="ngModel" [(ngModel)]="user.password" class="form-control" id="password" [readonly]="viewMode" required minlength="5">
+                            <div *ngIf="(passRef.invalid && passRef.touched) || passRef.dirty">
+                                <small class="text-danger" *ngIf="passRef.errors?.required">Password is required</small>
+                                <small class="text-danger" *ngIf="passRef.errors?.minlength">Password should greater than 5 character</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-5 col-md-6 col-lg-6"  *ngIf="!viewMode">
+                            <button type="submit"
+                             [disabled]="!f.valid"
+                             class="btn btn-success"
+                             style="margin-right: 10px;">{{ editMode ? 'Reset':'Add'}}</button>
+                            <button type="button" class="btn btn-danger" (click)="onClear(f)" >Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+        <div class="col-md-3">
+
+        </div>
+    </div>
+    </div>
+</div>
