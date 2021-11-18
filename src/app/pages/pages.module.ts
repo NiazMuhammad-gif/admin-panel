@@ -44,7 +44,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NgbTooltipModule,
     NgApexchartsModule,
     PerfectScrollbarModule,
-    DndModule,
+    // DndModule,
     FullCalendarModule,
     FormModule,
     TablesModule,

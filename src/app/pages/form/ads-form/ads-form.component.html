@@ -1,0 +1,78 @@
+
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="row" [ngStyle]="isLoading ? {opacity: 0.5}: {opacity: 1}">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Advertisement Entry Form</h4>
+                <p class="card-title-desc">Enter Advertisement  data into the following form .</p>
+                <div class="row">
+                <div class="col-md-6">
+                <form (ngSubmit)="onAddData(f)" id ='myForm' #f="ngForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="addName">Ads  Name:</label>
+                            <input type="text"    class="form-control" id="addName" name="addName" ngModel [readonly]="viewMode" required>
+                            <!--  checking -->
+                            
+                            <!-- end  -->
+                        </div>
+                        <!-- <div class="col-md-4" *ngIf="viewMode" >
+                            <label for="id">id:</label>
+                            <input [disabled]="!notShowId" type="text"    class="form-control" id="id" name="id" ngModel [readonly]="viewMode" required>
+                        </div> -->
+                        <div class="col-md-6">
+                            <label for="adsDetails"> adsDetails:</label>
+                            <input type="text"  class="form-control" id="adsDetails" name="adsDetails" ngModel  [readonly]="viewMode" required>
+                        </div>
+                    </div>
+                    <div class="row margin-top">
+                        <div class="col-md-6 ">
+                            <label for="amount"> Amount:</label>
+                            <input type="number"    class="form-control" id="amount" name="amount" ngModel [readonly]="viewMode" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="imagePath"> Image Path:</label>
+                            <input type="text"  class="form-control" id="imagePath" name="imagePath" ngModel  [readonly]="viewMode" required>
+                        </div>
+                    </div>
+                    <div class="row margin-top">
+                        <div class="col-md-6 ">
+                            <label for="isvalid"> is Valid:</label>
+                            <select *ngIf="!viewMode" class="form-control" id="isvalid" name="isvalid" ngModel required>
+                                <option *ngFor="let data of sampleData" [value]="data">{{data}}</option>
+                            </select>
+                                <input  type="text" *ngIf="viewMode"class="form-control" id="isValid" name="isValid" [readonly]="viewMode" ngModel required >
+                        </div>
+                        <div class="col-md-6">
+                            <label for="image"> image:</label>
+                            <input type="file"    class="form-control" id="image" name="image" (change)="onFileSelect($event)"ngModel [readonly]="viewMode" required>
+                       
+                        </div>
+                    </div>
+                    <!-- <div class="row margin-top">
+                        <div class="col-md-3 ">
+                            <label for="create_user"> Create_User:</label>
+                            <input type="text"  class="form-control" id="create_user" name="create_user" ngModel  [readonly]="true" required>
+                        </div>
+                    </div> -->
+                    <div class="row" style="margin-top: 10px;">
+                        <div  class="col-md-6" *ngIf="!viewMode">
+                            <button [disabled]="!f.valid"  type="submit" class="btn btn-success" style="margin-right: 10px;">{{ editMode ? 'Update':'Add'}}</button>
+                            <button type="button" class="btn btn-danger" (click)="onClear(f)" >Clear</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4 ">
+                <div  style=" width: 250px;height: 250px;">
+                    <img [src]="imgURL" width="100%" height="100%" [alt]="notfound">
+                </div>
+            </div>
+                <!-- <ui-switch [(ngModel)]="enable"></ui-switch>
+                            <div>{{enable}}</div> -->
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

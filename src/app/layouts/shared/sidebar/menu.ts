@@ -29,19 +29,38 @@ export const MENU: MenuItem[] = [
         id: 4,
         label: 'MENUITEMS.ADSSTATUS.TEXT',
         icon: 'ri-artboard-2-line',
-        link: '/'
+        link: '/tables/AdsStatusSetup'
     },
     {
         id: 5,
         label: 'MENUITEMS.PREMIUMMEMBERSETUP.TEXT',
         icon: 'ri-store-2-line',
-        link: '/'
+        link: '/tables/PremiumUserSetup'
     },
     {
         id: 6,
         label: 'MENUITEMS.ADSSETUP.TEXT',
         icon: 'ri-profile-line',
-        link: '/'
+        link: '/tables/AdsSetup'
+    },
+    {
+        id: 7,
+        label: 'MENUITEMS.PREMIUMPACKSETUP.TEXT',
+        icon: 'ri-profile-line',
+        link: '/tables/PremiumPackSetup'
+    },
+    {
+        id: 8,
+        label: 'MENUITEMS.TRANSTYPESETUP.TEXT',
+        icon: 'ri-profile-line',
+        link: '/tables/TransTypeSetup'
+    },
+    ,
+    {
+        id: 9,
+        label: 'MENUITEMS.DASHBOARD.TEXT',
+        icon: 'ri-profile-line',
+        link: '/tables/dashboard'
     },
     // {
     //     id: 3,

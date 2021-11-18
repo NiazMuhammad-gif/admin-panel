@@ -19,10 +19,14 @@ import { FormRoutingModule } from './form-routing.module';
 import { DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
 import { DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
 // import { UploadsComponent } from './uploads/uploads.component';
-
 import { UserFormComponent } from './user-form/user-form.component';
 
 import { LoaderModule } from '../loader/loader.module';
+import { AdsFormComponent } from './ads-form/ads-form.component';
+import { PremiumUserFormComponent } from './premium-user-form/premium-user-form.component';
+import { PremiumPackFormComponent } from './premium-pack-form/premium-pack-form.component';
+import { TranstypeFormComponent } from './transtype-form/transtype-form.component';
+import { ApiCounterFormComponent } from './api-counter-form/api-counter-form.component';
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
   url: 'https://httpbin.org/post',
@@ -31,7 +35,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
 @NgModule({
   // tslint:disable-next-line: max-line-length
   // declarations: [ ValidationComponent,  UploadsComponent, WizardComponent,  AdvancedformComponent,  UserFormComponent],
-  declarations: [ UserFormComponent],
+  declarations: [ UserFormComponent, AdsFormComponent, PremiumUserFormComponent, PremiumPackFormComponent, TranstypeFormComponent, ApiCounterFormComponent],
   imports: [
     CommonModule,
     FormsModule,

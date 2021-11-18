@@ -11,5 +11,5 @@ export const environment = {
     appId: '',
     measurementId: ''
   },
-  apiUrl: "https://voiashb.8mindsolutions.com/"
+  apiUrl: "https://voiashb.8mindsolutions.com"
 };

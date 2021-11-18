@@ -118,7 +118,7 @@ export class AuthenticationService {
     this.authStatusListener.next(false);
     this.userId = null;
     clearTimeout(this.tokenTimer);
-    console.log('check that this function is working or not')
+ 
     this.clearAuthData();
     this.router.navigate(["/"]);
   }
@@ -143,6 +143,7 @@ export class AuthenticationService {
     localStorage.removeItem("userId");
     localStorage.removeItem('companyId')
     localStorage.removeItem('branchId')
+    console.log('check that this function is working or not')
   }
 
   private getAuthData() {

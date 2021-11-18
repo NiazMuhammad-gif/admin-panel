@@ -1,0 +1,55 @@
+
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="row" [ngStyle]="isLoading ? {opacity: 0.5}: {opacity: 1}">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" *ngIf="newMode">Premium Pack Form</h4>
+                   <p class="card-title-desc">Enter Premium pack data into the following form .</p>
+                <form (ngSubmit)="onAddData(f)" #f="ngForm" >
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="packName">Pack Name:</label>
+                            <input type="text" [class.is-invalid] = "nameRef.invalid && nameRef.touched"  class="form-control" id="packName" name="packName"  #nameRef="ngModel" [(ngModel)]="user.name"  [readonly]="!newMode" required>
+                            <div *ngIf="(nameRef.invalid && nameRef.touched) || nameRef.dirty">
+                                <small class="text-danger" *ngIf="nameRef.errors?.required">Name is required</small>
+                            </div>
+                        </div>
+                        <div class="col-md-12" *ngIf="newMode">
+                            <label for="amount">Amount:</label>
+                            <input type="number" [class.is-invalid] = "numberRef.invalid && numberRef.touched"  class="form-control" id="amount" name="amount" #numberRef="ngModel"  [(ngModel)]="user.amount" [readonly]="!newMode" required pattern="^[0-9]*$">
+                            <div *ngIf="(numberRef.invalid && numberRef.touched) || numberRef.dirty">
+                                <small class="text-danger" *ngIf="numberRef.errors?.required">Amount is required</small>
+                                <small class="text-danger" *ngIf="numberRef.errors?.pattern"> Enter valid Amount</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-5 col-md-6 col-lg-6"  *ngIf="!viewMode">
+                            <button type="submit"
+                             [disabled]="!f.valid"
+                             class="btn btn-success"
+                             style="margin-right: 10px;">{{ editMode ? 'Reset':'Add'}}</button>
+                            <button type="button" class="btn btn-danger" (click)="onClear(f)" >Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+        <div class="col-md-3">
+
+        </div>
+    </div>
+    </div>
+</div>

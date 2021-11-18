@@ -1,7 +1,6 @@
-import { Component, DoCheck, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { CrudService } from 'src/app/core/services/crud.service';
 import Swal from 'sweetalert2';
 
@@ -19,10 +18,6 @@ export class UserFormComponent implements OnInit {
   countryName='';
   cityName='';
   indexOfData=0;
-  subEditMode: Subscription;
-  subIndex : Subscription;
-  subMode : Subscription;
-  subStartedEditing: Subscription;
   editMode = false;
   viewMode = false;
   mode = '';

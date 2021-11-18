@@ -1,0 +1,57 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="row" [ngStyle]="isLoading ? {opacity: 0.5}: {opacity: 1}">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row mb-md-2">
+                    <div class="col-sm-12 col-md-9">
+                      <h4 class="card-title">PREMIUM PACK DATA TABLE</h4>
+                      <p class="card-sub-title">
+                        Enter to datatable.
+                      </p>
+                    </div>
+                    <div class="col-sm-12 col-md-3 text-md-right">
+                      <button type="button" class="btn btn-success btn-lg" (click)="onAddData()"><a ><i style="margin-right: 10px;" class="fa fa-plus"></i>Add Pack</a></button>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-12">
+                    <div id="tickets-table_filter" class="dataTables_filter text-md-right app-search d-none d-lg-block">
+                        <div  class="position-relative d-inline-flex align-items-center">
+                            <input type="text" name="searchTerm" class="form-control form-control-sm ml-2"
+                              aria-controls="tickets-table" [(ngModel)]="term"  placeholder="Search"/>
+                              <span class="ri-search-line"></span>
+                        </div>
+                    </div>
+                  </div>
+                <div class="table-responsive">
+                    <table id="table"  class="table table-bordered dt-responsive nowrap datatables no-footer dtr-inline">
+                        <thead>
+                            <tr>
+                                <th>pack Name</th>
+                                <th>Amount</th>
+                                <th>Is valid</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr *ngFor = "let data of usersData|filter:term; let i=index">
+                                <td>{{data.packName}}</td>
+                                <td> {{data.amount}} </td>
+                                <td> {{data.isvalid}} </td>
+                                <!-- <td> -->
+                                  <!-- <a href="javascript:void(0);" (click)="onEdit(i,data)" class="mr-3 text-primary" ngbTooltip="Edit"><i
+                                      class="mdi mdi-pencil font-size-18"></i></a> -->
+                                      <!-- <a href="javascript:void(0);"  class="mr-3 text-primary" ngbTooltip="Edit"><i
+                                        class="mdi mdi-account-edit font-size-18"></i></a> -->
+                                  <!-- <a href="javascript:void(0);" (click)="onDelete(data.userid)"class="mr-3 text-danger" ngbTooltip="Delete"><i
+                                      class="mdi mdi-trash-can font-size-18"></i></a>
+                                      <a href="javascript:void(0);" (click)="onView(i,data)" class="text-dark" ngbTooltip="View"><i
+                                          class="mdi mdi-eye font-size-18"></i></a> -->
+                                <!-- </td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

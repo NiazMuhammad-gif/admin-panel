@@ -89,6 +89,15 @@
     "ADSSETUP":{
       "TEXT":"Ads Setup"
     },
+    "PREMIUMPACKSETUP":{
+      "TEXT":"Premium Pack Setup"
+    },
+    "TRANSTYPESETUP":{
+      "TEXT":"Trans Type Setup"
+    },
+    "DASHBOARD":{
+      "TEXT":"Dashboard"
+    },
 
 
 "USERCOMPANYLIST":{
